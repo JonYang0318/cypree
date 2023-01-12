@@ -34,6 +34,8 @@ pipeline{
         }
     }
         
-    }   
-    publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'cypresss/report', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
+    
+       
+    
+       }   
 }

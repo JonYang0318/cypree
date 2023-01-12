@@ -3,8 +3,8 @@ pipeline{
 
     parameters
     {
-        string(name: 'SPEC',defaultValue:'cypress/e2e/**/**',desciprtion:'nothing')
-        choice(name: 'BROWSER',choices['chrome','edeg'],desciprtion:'noting')
+        string(name: 'SPEC',defaultValue:'cypress/e2e/**/**',description:'nothing')
+        choice(name: 'BROWSER',choices['chrome','edge'],description:'noting')
 
     }
 

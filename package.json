@@ -6,8 +6,8 @@
     "cypress:run": "cypress run",
     "test": "echo \"Error: no test specified\" && exit 1",
     "runOnChrome": "cypress run --browser chrome",
-    "cypress:chrome":"cypress run --browser chrome --speccypress/e2e/memeber/*.cy.js",
-    "runOnedge":"cypress run --browser edge --spec cypress/e2e/Telligent/*.cy.js",
+    "chrome":"cypress run --browser chrome --speccypress/e2e/Member/**",
+    "edge":"cypress run --browser edge --spec cypress/e2e/Telligent/**",
     "headless":"cypress run --headless --browser chrome --spec cypress/e2e/Telligent/*.cy.js"
   },
   "author": "",

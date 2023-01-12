@@ -6,9 +6,9 @@
     "cypress:run": "cypress run",
     "test": "cypress run simple-test.js",
     "runOnChrome": "cypress run --browser chrome",
-    "chrome":"cypress run --browser chrome --speccypress/e2e/**/**",
-    "edge":"cypress run --browser edge --spec cypress/e2e/**/**",
-    "headless":"cypress run --headless --browser chrome --spec cypress/e2e/Telligent/*.cy.js"
+    "chrome": "cypress run --browser chrome --speccypress/e2e/**/**",
+    "edge": "cypress run --browser edge --spec cypress/e2e/**/**",
+    "headless": "cypress run --headless --browser chrome --spec cypress/e2e/Telligent/*.cy.js"
   },
   "author": "",
   "license": "ISC",

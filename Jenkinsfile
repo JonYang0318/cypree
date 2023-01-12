@@ -18,13 +18,13 @@ pipeline{
         }
         }
     }
-    stage('測試')
+    stage('測試'){
         steps{
-            bat 'npm i'
+            bat 'npn i'
             bat 'npx cypress run --browser ${BROWSER} --spec ${SPEC}'
 
         }
-
+    }
     stages{
         steps{
          stage('部屬'){

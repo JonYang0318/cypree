@@ -2,7 +2,7 @@ pipeline{
     agent any
 
     parameters{
-        string(name:'SPEC',defaultValue:'cypress/e2e/**/**',desciprtion: 'nothing')
+        string(name: 'SPEC',defaultValue:'cypress/e2e/**/**',desciprtion:'nothing')
         choice(name: 'BROWSER',choices['chrome','edeg'],desciprtion:'noting')
 
     }
@@ -12,12 +12,12 @@ pipeline{
     }
 
     stages{
-        steps{
-        stage('建置'){
-        echo'建製應用'
-        }
-        }
+        stage('building')
+            steps{
+                echo'建置'
+            }
     }
+    
     stage('測試'){
         steps{
             bat 'npn i'
@@ -25,7 +25,9 @@ pipeline{
 
         }
     }
-    stages{
+    
+    
+    stage{
         steps{
          stage('部屬'){
          echo'建製html'

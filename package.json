@@ -4,10 +4,10 @@
   "main": "index.js",
   "scripts": {
     "cypress:run": "cypress run",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "cypress run simple-test.js",
     "runOnChrome": "cypress run --browser chrome",
-    "chrome":"cypress run --browser chrome --speccypress/e2e/Member/**",
-    "edge":"cypress run --browser edge --spec cypress/e2e/Telligent/**",
+    "chrome":"cypress run --browser chrome --speccypress/e2e/**/**",
+    "edge":"cypress run --browser edge --spec cypress/e2e/**/**",
     "headless":"cypress run --headless --browser chrome --spec cypress/e2e/Telligent/*.cy.js"
   },
   "author": "",

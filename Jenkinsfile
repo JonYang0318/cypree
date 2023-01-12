@@ -33,21 +33,7 @@ pipeline{
             bat 'npx cypress run --browser ${BROWSER} --spec ${SPEC}'
         }
     }
-
-    stege('report')
-    {
-        steps
-        {
-           post{
-        always
-        {
-            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'cypresss/report', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
-        }
-    }
-             
-        }
-
-    }
+    
         
     
        

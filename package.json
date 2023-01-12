@@ -1,0 +1,25 @@
+{
+  "name": "cypress999",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "cypress:run": "cypress run",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "runOnChrome": "cypress run --browser chrome",
+    "cypress:chrome":"cypress run --browser chrome --spec cypress/integration/pom/*.cy.js",
+    "runOnedge":"cypress run --browser edge --spec cypress/e2e/Telligent/*.cy.js",
+    "headless":"cypress run --headless --browser chrome --spec cypress/e2e/Telligent/*.cy.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^11.2.0",
+    "cypress-mochawesome-reporter": "^3.2.3",
+    "cypress-xpath": "^2.0.1",
+    "mochawesome-merge": "^4.2.1"
+  },
+  "dependencies": {
+    "mysql": "^2.18.1"
+  },
+  "description": ""
+}

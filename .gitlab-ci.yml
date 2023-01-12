@@ -1,0 +1,14 @@
+stages:
+  - test
+
+test:
+  tags:
+    - sakura
+  image: cypress/browsers:node18.12.0-chrome107
+  stage: test
+  script:
+    # install dependencies
+    - npm ci
+    
+    # run Cypress tests
+    - npm run runOnChrome

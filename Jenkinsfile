@@ -1,44 +1,47 @@
 pipeline{
     agent any
 
-    parameters{
+    parameters
+    {
         string(name: 'SPEC',defaultValue:'cypress/e2e/**/**',desciprtion:'nothing')
         choice(name: 'BROWSER',choices['chrome','edeg'],desciprtion:'noting')
 
     }
 
-    options{
+    options
+    {
         ansiColor('xterm')
     }
 
-    stages{
+    stages
+    {
         stage('building')
-            steps{
+        {
+            steps
+            {
                 echo'建置'
             }
-    }
+         }
+            
     
-    stage('測試'){
-        steps{
+    
+        stage('testing')
+    {
+            steps
+        {
             bat 'npn i'
             bat 'npx cypress run --browser ${BROWSER} --spec ${SPEC}'
-
         }
     }
+        
     
-    
-    stage{
-        steps{
-         stage('部屬'){
-         echo'建製html'
-        }
-        }
        
-    }
+    
     post{
-        always{
+        always
+        {
             publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'cypresss/report', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
         }
     }
-       
+       }   
 }

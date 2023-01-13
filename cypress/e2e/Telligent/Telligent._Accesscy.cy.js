@@ -36,7 +36,7 @@ describe("登入其他家公司(SuperAdmin)",()=>{
                           
                   
                           }) 
-    it.skip('檢查權限',function(){  
+    it('檢查權限',function(){  
         cy.clearCookies()         
         cy.viewport(1920, 1080)
         cy.visit('https://qa.telli.cc/business/auth/login?corporationId=75d055f2-5f16-11ed-afa6-00ffaf2156c9&functionId=171f5021-60d3-11ed-b3fa-00ffaf2156c9')
@@ -86,7 +86,7 @@ describe("登入其他家公司(SuperAdmin)",()=>{
     })
 
 
-    it.only('檢查取消停用群組功能按鍵/檢查建立時間是否相符合',function(){
+    it('檢查取消停用群組功能按鍵/檢查建立時間是否相符合',function(){
         cy.clearCookies()  
         cy.viewport(1280, 720)
         cy.visit('https://qa.telli.cc/business/auth/login?corporationId=75d055f2-5f16-11ed-afa6-00ffaf2156c9&functionId=171f5021-60d3-11ed-b3fa-00ffaf2156c9')
@@ -135,4 +135,29 @@ describe("登入其他家公司(SuperAdmin)",()=>{
                        
                
                        }) 
-                          });
+        describe("麵包屑檢查",()=>{
+    
+          
+            it.only('檢查麵包屑',function(){
+                cy.viewport(1280, 720)
+                cy.visit('https://qa.telli.cc/business/auth/login?corporationId=75d055f2-5f16-11ed-afa6-00ffaf2156c9&functionId=171f5021-60d3-11ed-b3fa-00ffaf2156c9')
+                cy.xpath("/html/body/div[1]/div/div/main/div[2]/div/div[2]/div/div/div[1]/div/label[1]/div/div[1]/div[2]/input").type('tpp07026@telexpress.com')
+                cy.xpath("/html/body/div[1]/div/div/main/div[2]/div/div[2]/div/div/div[1]/div/label[2]/div/div[1]/div[2]/input").type('77887788')
+                cy.xpath('/html/body/div[1]/div/div/main/div[2]/div/div[2]/div/div/div[2]/button/span[2]').click()
+                //選擇公司 
+                cy.xpath('/html/body/div[1]/div/div/main/div[2]/div/div[2]/div/div/div[2]/div/div/div[1]/div/div/label[1]/div[2]/div/div[2]').click()    
+                //確定 
+                cy.xpath('/html/body/div[1]/div/div/main/div[2]/div/div[2]/div/div/div[3]/button/span[2]').click()
+                //click 基點管理
+                cy.xpath('/html/body/div[1]/div/div[1]/aside/div/div/div[1]/div[3]/div[1]/span').click()
+                cy.xpath('/html/body/div[1]/div/div[1]/aside/div/div/div[1]/div[3]/div[2]/div/span').click()
+                cy.xpath('/html/body/div[1]/div/div[2]/main/div/div').as('bread')
+                cy.get('@bread').should('contain','客戶/積點管理/基本設定')
+              
+
+                      
+                                      }) 
+                               })        
+                         //
+     });
+   

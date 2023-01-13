@@ -62,7 +62,7 @@ pipeline {
             slackSend channel: 'testing_example',
               steps {
                 slackSend color: '#00FF00', message: 'Test passed!', channel: '#testing', 
-                attachments: [[path: 'file:///C:/Users/TPP07026/.jenkins/workspace/cypress%20testing%203/cypress/reports/index.html']]
+            
             
             publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'cypress/report', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
             deleteDir()

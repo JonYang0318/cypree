@@ -186,7 +186,7 @@ describe("變更密碼後登入能夠成功",()=>{
   describe("輸入錯誤帳號密碼必須彈出googlereCAPTCHA",()=>{
     
           
-       it.only('輸入錯誤帳號與再次輸入正確帳號密碼',function(){
+       it('輸入錯誤帳號與再次輸入正確帳號密碼',function(){
         cy.visit('https://qa.telli.cc/business/auth/login?corporationId=75d055f2-5f16-11ed-afa6-00ffaf2156c9&functionId=171f5021-60d3-11ed-b3fa-00ffaf2156c9')
         cy.xpath("/html/body/div[1]/div/div/main/div[2]/div/div[2]/div/div/div[1]/div/label[1]/div/div[1]/div[2]/input").type('tpp07026@telexpress.com')
         cy.xpath("/html/body/div[1]/div/div/main/div[2]/div/div[2]/div/div/div[1]/div/label[2]/div/div[1]/div[2]/input").type('755588')
@@ -204,7 +204,7 @@ describe("變更密碼後登入能夠成功",()=>{
 describe("輸入錯誤帳號密碼必須彈出googlereCAPTCHA",()=>{
     
           
-              it.only('輸入錯誤帳號與再次輸入正確帳號密碼',function(){
+              it('輸入錯誤帳號與再次輸入正確帳號密碼',function(){
                cy.visit('https://qa.telli.cc/business/auth/login?corporationId=75d055f2-5f16-11ed-afa6-00ffaf2156c9&functionId=171f5021-60d3-11ed-b3fa-00ffaf2156c9')
                cy.xpath('/html/body/div[1]/div/div/main/div[2]/div/div[2]/div/div/div[1]/div/div/a').click()
                cy.xpath("/html/body/div[1]/div/div/main/div[2]/div/div[2]/div/div/div[2]/div/label/div/div[1]/div[2]/input").type('tpp0556s.com')
@@ -219,4 +219,6 @@ describe("輸入錯誤帳號密碼必須彈出googlereCAPTCHA",()=>{
                }) 
                
                //
-               });
+ 
+                      //
+  });

@@ -52,9 +52,19 @@ pipeline {
 
     post {
         always {
+            //The script step takes a block of Scripted Pipeline and executes that in the Declarative Pipeline. 
+            //For most use-cases, the script step should be unnecessary in Declarative Pipelines, but it can provide
+            //a useful "escape hatch." script blocks of non-trivial size and/or complexity should be moved into Shared Libraries instead.
+            script {
+                BUILD_USER = getBuildUser()
+            }
             
+            slackSend channel: '#jenkins-example',
+                color: COLOR_MAP[currentBuild.currentResult],
+                message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} by ${BUILD_USER}\n Tests:${SPEC} executed at ${BROWSER} \n More info at: ${env.BUILD_URL}HTML_20Report/"
             
-            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'C:\\Users\\TPP07026\\Desktop\\gitsso\\cypress\\report', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
+            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'cypress/report', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
+            deleteDir()
         }
     }
 }

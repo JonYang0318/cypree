@@ -13,7 +13,7 @@ pipeline {
     //The values for these user-specified parameters are made available to Pipeline steps via the params object, see
     //the Parameters, Declarative Pipeline for its specific usage.
     parameters {
-        string(name: 'SPEC', defaultValue: 'cypress/e2e/**/**', description: 'Ej: cypress/e2e/**/*.spec.js')
+        choice(name: 'SPEC', choices[ 'cypress/e2e/Telligent/**','cypress/e2e/memeber/**'], description: 'Ej: cypress/e2e/**/*.spec.js')
         choice(name: 'BROWSER', choices: ['chrome', 'edge', 'firefox'], description: 'Pick the web browser you want to use to run your scripts')
     }
     
@@ -55,7 +55,7 @@ pipeline {
             
             
            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'C:\\Users\\TPP07026\\Desktop\\gitsso\\cypress\\report', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
-            deleteDir()
+        
         }
     }
 }

@@ -62,7 +62,7 @@ pipeline {
             slackSend channel: 'testing_example',
                 color: "#439FE0",
                 message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} by ${BUILD_USER}\n Tests:${SPEC} executed at ${BROWSER} \n More info at: ${env.BUILD_URL}HTML_20Report/",
-                slackUploadFile channel: "testing_example", filePath: "index.html"
+                slackUploadFile channel: "testing_example", filePath: "index.html",
             
             publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'cypress/report', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
             deleteDir()

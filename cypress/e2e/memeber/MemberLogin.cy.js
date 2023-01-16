@@ -81,7 +81,7 @@ it('將DB設置為嚴謹條款與簡訊登入',function(){
 
 
 
-   it('DB資料刪除讓資料能重新註冊/memeber/memeber_acount/profile_basic/extended',function(){
+   it.only('DB資料刪除讓資料能重新註冊/memeber/memeber_acount/profile_basic/extended',function(){
       cy.task( "queryDb",`DELETE From telligent_member.member ORDER BY registration_time desc LIMIT 1;`).then((result) => {
          expect(result.message).to.equal("")
       }) 

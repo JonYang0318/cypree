@@ -138,7 +138,7 @@ describe("登入其他家公司(SuperAdmin)",()=>{
         describe("麵包屑檢查",()=>{
     
           
-            it.only('檢查麵包屑',function(){
+            it('檢查麵包屑',function(){
                 cy.viewport(1280, 720)
                 cy.visit('https://qa.telli.cc/business/auth/login?corporationId=75d055f2-5f16-11ed-afa6-00ffaf2156c9&functionId=171f5021-60d3-11ed-b3fa-00ffaf2156c9')
                 cy.xpath("/html/body/div[1]/div/div/main/div[2]/div/div[2]/div/div/div[1]/div/label[1]/div/div[1]/div[2]/input").type('tpp07026@telexpress.com')
@@ -158,6 +158,96 @@ describe("登入其他家公司(SuperAdmin)",()=>{
                       
                                       }) 
                                })        
+            describe("管理員/帳戶設定修改+儲存",()=>{
+    
+          
+            it('SuperAdmin修改個認人資料+儲存',function(){
+                cy.viewport(1500, 1280)
+                cy.visit('https://qa.telli.cc/business/auth/login?corporationId=75d055f2-5f16-11ed-afa6-00ffaf2156c9&functionId=171f5021-60d3-11ed-b3fa-00ffaf2156c9')
+                cy.xpath("/html/body/div[1]/div/div/main/div[2]/div/div[2]/div/div/div[1]/div/label[1]/div/div[1]/div[2]/input").type('superadmin@telexpress.com')
+                cy.xpath("/html/body/div[1]/div/div/main/div[2]/div/div[2]/div/div/div[1]/div/label[2]/div/div[1]/div[2]/input").type('123456')
+                cy.xpath('/html/body/div[1]/div/div/main/div[2]/div/div[2]/div/div/div[2]/button/span[2]').click()
+                //選擇公司 
+                cy.xpath('/html/body/div[1]/div/div/main/div[2]/div/div[2]/div/div/div[2]/div/div/div[1]/div/div/label[1]/div[2]/div/div[2]').click()    
+                //確定 
+                cy.xpath('/html/body/div[1]/div/div/main/div[2]/div/div[2]/div/div/div[3]/button/span[2]').click()
+                //click 管理員設定
+                cy.xpath('/html/body/div[1]/div/div[1]/aside/div/div/div[3]/div[2]/div').click()
+        
+                cy.wait(3000)                //操作編輯
+                
+                cy.xpath('/html/body/div[1]/div/div[2]/main/micro-app/micro-app-body/div[1]/div/div/main/div/div/div/div[3]/div/div[1]/div/table/tbody/tr[1]/td[7]/div/div/button/span[2]').click()
+                //修改第一個人的資料在進行儲存
+                function nickname() {
+                    const chars = "豪明花偉立建民子偉峻傑均軍";
+                    let me = "";
+                    for (let i = 0; i < 2; i++) {
+                        me += chars.charAt(Math.floor(Math.random() * chars.length));
+                    }
+                    return "王"+me;
+               }
+               cy.xpath('/html/body/div[1]/div/div[2]/main/micro-app/micro-app-body/div[1]/div/div/form/div/div/div[1]/div[2]/div/div/div[1]/div[3]/label/div/div[1]/div/input').clear()
+               cy.wait(3000)
+               cy.xpath('/html/body/div[1]/div/div[2]/main/micro-app/micro-app-body/div[1]/div/div/form/div/div/div[1]/div[2]/div/div/div[1]/div[3]/label/div/div[1]/div/input').type(nickname())
+               cy.xpath('/html/body/div[1]/div/div[2]/main/micro-app/micro-app-body/div[1]/div/div/form/div/div/div[1]/div[2]/div/div/div[2]/div[1]/label/div/div[1]/div/input').clear()
+               function tele() {
+                const chars = "0123456789";
+                let me = "";
+                for (let i = 0; i < 6; i++) {
+                    me += chars.charAt(Math.floor(Math.random() * chars.length));
+                }
+                return "0933"+me;
+           }
+           cy.xpath('/html/body/div[1]/div/div[2]/main/micro-app/micro-app-body/div[1]/div/div/form/div/div/div[1]/div[2]/div/div/div[2]/div[1]/label/div/div[1]/div/input').type(tele())
+           cy.xpath('/html/body/div[1]/div/div[2]/main/micro-app/micro-app-body/div[1]/div/div/form/h2/div/button[2]/span[2]/span').click()
+                      
+                                      }) 
+                               })        
+
+            it('Admin修改個認人資料+儲存',function(){
+             cy.viewport(1500, 1280)
+             cy.visit('https://qa.telli.cc/business/auth/login?corporationId=75d055f2-5f16-11ed-afa6-00ffaf2156c9&functionId=171f5021-60d3-11ed-b3fa-00ffaf2156c9')
+             cy.xpath("/html/body/div[1]/div/div/main/div[2]/div/div[2]/div/div/div[1]/div/label[1]/div/div[1]/div[2]/input").type('tpp07026@telexpress.com')
+             cy.xpath("/html/body/div[1]/div/div/main/div[2]/div/div[2]/div/div/div[1]/div/label[2]/div/div[1]/div[2]/input").type('77887788')
+             cy.xpath('/html/body/div[1]/div/div/main/div[2]/div/div[2]/div/div/div[2]/button/span[2]').click()
+            //選擇公司 
+            cy.xpath('/html/body/div[1]/div/div/main/div[2]/div/div[2]/div/div/div[2]/div/div/div[1]/div/div/label[1]/div[2]/div/div[2]').click()  
+            //確定 
+            cy.xpath('/html/body/div[1]/div/div/main/div[2]/div/div[2]/div/div/div[3]/button/span[2]').click()
+            //個人資料管理
+            cy.xpath('/html/body/div[1]/div/header/div[2]/div[2]').click()    
+            cy.xpath('/html/body/div[3]/div/div[2]/div[2]').click()    
+                                
+            cy.xpath('/html/body/div[1]/div/div[2]/main/div/div/div[2]/div[1]/div[2]/div/div[1]/div/div[1]/label/div/div[1]/div/input').clear()
+            cy.wait(3000)
+                function nickname() {
+                const chars = "豪明花偉立建民子偉峻傑均軍";
+                let me = "";
+                for (let i = 0; i < 2; i++) {
+                    me += chars.charAt(Math.floor(Math.random() * chars.length));
+                }
+                return "楊"+me;
+           }      
+            //編輯
+            cy.xpath('/html/body/div[1]/div/div[2]/main/div/div/div[2]/div[1]/div[2]/div/div[1]/div/div[1]/label/div/div[1]/div/input').type(nickname())
+            cy.xpath('/html/body/div[1]/div/div[2]/main/div/div/div[2]/div[1]/div[2]/div/div[2]/div/label/div/div[1]/div/input').clear()
+            //修改聯絡方式
+            function tele() {
+                const chars = "0123456789";
+                let me = "";
+                for (let i = 0; i < 6; i++) {
+                    me += chars.charAt(Math.floor(Math.random() * chars.length));
+                }
+                return "0966"+me;
+           }
+            
+            cy.xpath('/html/body/div[1]/div/div[2]/main/div/div/div[2]/div[1]/div[2]/div/div[2]/div/label/div/div[1]/div/input').type(tele())               
+                                //儲存
+            cy.xpath('/html/body/div[1]/div/div[2]/main/div/div/div[2]/div[1]/div[3]/button/span[2]').click()
+                                      
+                                                      }) 
+                                               })        
+                         
                          //
-     });
+
    

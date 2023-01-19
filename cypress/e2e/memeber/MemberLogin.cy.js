@@ -5,9 +5,17 @@ it('將DB設置為嚴謹條款與簡訊登入',function(){
       cy.task( "queryDb",`UPDATE telligent_member.company_setting SET terms_policy_type= '1' WHERE id = ('73efafaa-609e-11ed-aad0-0242ac170004');`)
       
       }) 
-      
+   // for(let i = 0; i< 9; i++){
    it('註冊帳號',function(){
     cy.visit('https://qa.telli.cc/consumer/member/login')
+   //  function telephon() {
+   //    const chars = "1234567890";
+   //    let me = "";
+   //    for (let i = 0; i < 1; i++) {
+   //        me += chars.charAt(Math.floor(Math.random() * chars.length));
+   //    }
+   //    return "097777777"+me;
+   //  }
     cy.xpath('/html/body/div[1]/div/div/main/div/div[2]/div/div/div[1]/form/label').type('0966548485')
     cy.xpath('/html/body/div[1]/div/div/main/div/div[2]/div/div/div[1]/form/button').click()
     cy.wait(4000)
@@ -23,11 +31,26 @@ it('將DB設置為嚴謹條款與簡訊登入',function(){
        cy.scrollTo('bottom') //滾動至下方
        cy.xpath('/html/body/div[1]/div/footer/div[1]/div[1]/div[2]').click() //點選checkbox
        cy.xpath('/html/body/div[1]/div/footer/div[1]/div[2]/div/button[2]/span[2]').click()//確認條款
-
+   //     function nickname() {
+   //       const chars = "abcdefghyjklmnopqrstuvwxyz";
+   //       let me = "";
+   //       for (let i = 0; i < 2; i++) {
+   //           me += chars.charAt(Math.floor(Math.random() * chars.length));
+   //       }
+   //       return "TwiceMmeber"+me;
+   //  }
        //輸入姓名
-       cy.xpath('/html/body/div[1]/div/div/main/div/div[2]/div/div/div/form/label[2]/div/div[1]/div/input').type('jimmy')
+       cy.xpath('/html/body/div[1]/div/div/main/div/div[2]/div/div/div/form/label[2]/div/div[1]/div/input').type('JIMMY')
+       function mailname() {
+         const chars = "abcdefghyjklmnopqrstuvwxyz";
+         let me = "";
+         for (let i = 0; i < 4; i++) {
+             me += chars.charAt(Math.floor(Math.random() * chars.length));
+         }
+         return me+'@'+me+'.com';
+    }
        //信箱
-       cy.xpath('/html/body/div[1]/div/div/main/div/div[2]/div/div/div/form/label[3]/div/div[1]/div/input').type('655@kk.com')
+       cy.xpath('/html/body/div[1]/div/div/main/div/div[2]/div/div/div/form/label[3]/div/div[1]/div/input').type('TPP07026@Telexpress.com')
        //生日
        cy.xpath('/html/body/div[1]/div/div/main/div/div[2]/div/div/div/form/label[4]/div/div[1]/div[1]/i').click()
        cy.xpath('/html/body/div[3]/div/div/div/div[1]/div/div[3]/div/div[9]/button/span[2]/span').click()
@@ -58,10 +81,10 @@ it('將DB設置為嚴謹條款與簡訊登入',function(){
        cy.xpath('/html/body/div[1]/div/div/main/div/div[2]/div/div/div/form/button/span[2]').click()
        
     }) 
-    
+   
     //
     });
-    
+   // }
    it('登入測試',function(){
       cy.visit('https://qa.telli.cc/consumer/member/login')
       cy.xpath('/html/body/div[1]/div/div/main/div/div[2]/div/div/div[1]/form/label').type('0966548485')
@@ -81,7 +104,7 @@ it('將DB設置為嚴謹條款與簡訊登入',function(){
 
 
 
-   it.only('DB資料刪除讓資料能重新註冊/memeber/memeber_acount/profile_basic/extended',function(){
+   it.skip('DB資料刪除讓資料能重新註冊/memeber/memeber_acount/profile_basic/extended',function(){
       cy.task( "queryDb",`DELETE From telligent_member.member ORDER BY registration_time desc LIMIT 1;`).then((result) => {
          expect(result.message).to.equal("")
       }) 

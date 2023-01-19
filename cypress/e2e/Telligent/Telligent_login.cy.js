@@ -218,7 +218,11 @@ describe("輸入錯誤帳號密碼必須彈出googlereCAPTCHA",()=>{
               cy.get('@mailcheck').should('contain','此Email不存在')
                }) 
                
-               //
+              
  
-                      //
+                     
   });
+
+
+
+       

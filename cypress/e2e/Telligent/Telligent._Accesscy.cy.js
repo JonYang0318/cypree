@@ -158,7 +158,7 @@ describe("登入其他家公司(SuperAdmin)",()=>{
                       
                                       }) 
                                })        
-            describe("管理員/帳戶設定修改+儲存",()=>{
+        describe("管理員/帳戶設定修改+儲存",()=>{
     
           
             it('SuperAdmin修改個認人資料+儲存',function(){

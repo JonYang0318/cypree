@@ -8,7 +8,7 @@
     "runOnChrome": "cypress run --browser chrome",
     "cypress:chrome": "cypress run --browser chrome --speccypress/e2e/**/**",
     "cypress:edge": "cypress run --browser edge --spec cypress/e2e/**/**",
-    "cypress:headless": "cypress run --headless --browser chrome --spec cypress/e2e/Telligent/*.cy.js"
+    "cypress:headless": "cypress run --headless --browser chrome --spec cypress/e2e/Telligent/Telligent_api.cy.js"
   },
   "author": "",
   "license": "ISC",
@@ -19,6 +19,7 @@
     "mochawesome-merge": "^4.2.1"
   },
   "dependencies": {
+    "cypress-plugin-api": "^2.10.0",
     "mysql": "^2.18.1"
   },
   "description": ""

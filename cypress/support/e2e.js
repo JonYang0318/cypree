@@ -25,7 +25,7 @@
     }
     childProcess.spawn = mySpawn;
 })();
-
+import 'cypress-plugin-api'
 import './commands'
 import 'cypress-mochawesome-reporter/register';
 require('cypress-xpath');

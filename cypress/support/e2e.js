@@ -28,6 +28,8 @@
 import 'cypress-plugin-api'
 import './commands'
 import 'cypress-mochawesome-reporter/register';
+import 'cypress-file-upload';
+
 require('cypress-xpath');
 // import './commands'
 // Cypress.on('uncaught:exception', (err, runnable) => {
